@@ -1,129 +1,94 @@
-html, body, ol, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background: white;
-  padding: 20px;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-h2 {
-  margin-top: 40px;
-}
-
-footer {
-  margin-top: 60px;
-}
-
-button {
-  background: transparent;
-  border: 0;
   margin: 0;
-  padding: 0;
-  cursor: pointer;
+  font-size: 12px; font-family: Helvetica, Arial, sans-serif;
+  background: #e1e4ed url("../images/bg.png") repeat-x top;
 }
+
+ol, ul { list-style: none; margin: 0; padding: 0; }
+button { margin: 0; padding: 0; cursor: pointer; border: none; background: transparent; }
+
+.container { margin: 0 auto; width: 1049px; }
+
+header            { height: 150px; text-indent: -10000px; }
+header .title     { padding-top: 44px; width: 436px; height: 69px; float: left; }
+header .title     { overflow: hidden; background: url("../images/header.title.png") no-repeat bottom; }
+header .title h1  { margin: 0px; padding: 0; }
+header .badge a   { margin-right: -30px; width: 144px; height: 144px; float: right; }
+header .badge a   { overflow: hidden; background: url("../images/header.badge.png") no-repeat bottom; }
+
+h3.pattern-title  { margin: 0 0 32px; height: 13px; overflow: hidden; text-indent: -10000px; }
+h3.pattern-title  { background: url("../images/pattern.title.png") no-repeat center; }
+p.pattern-desc    { margin: 18px 0 20px; height: 13px; overflow: hidden; text-indent: -10000px; }
+p.pattern-desc    { background: url("../images/pattern.desc.png") no-repeat center; }
 
 .pattern .tracks {
-  position: relative;
+  margin: 0 auto;
   padding-bottom: 5px;
+  width: 1049px;
+  position: relative;
+  background: url("../images/pattern.instrument_labels.png") no-repeat left 5px;
 }
-.pattern .track {
-  white-space: nowrap;
-}
+.pattern .track { white-space: nowrap; }
 .pattern .track .step {
   display: inline-block;
-  padding: 6px;
+  padding: 2px 3px 5px;
 }
 .pattern .track .step button {
-  width: 50px;
-  height: 50px;
-  background: #bbbbbb;
-  border: 1px solid black;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  background: url("../images/pattern.step.png");
+  width: 56px;
+  height: 57px;
 }
 .pattern .track .step button:hover {
-  background: #eeeeee;
+  background: url("../images/pattern.step.png");
 }
 .pattern .track .step.active button {
-  background: #bbffbb;
+  background: url("../images/pattern.step.active.png");
 }
 .pattern .track .step.active button:hover {
-  background: #eeffee;
+  background: url("../images/pattern.step.active.png");
 }
 .pattern .track .step:nth-child(4n) {
-  border-right: 4px double #445566;
+  padding-right: 4px;
 }
 .pattern .track .step:last-child {
-  border: none;
+  padding-right: 0;
 }
 .pattern .track > span {
-  width: 70px;
-  float: left;
-  text-align: right;
-  margin: 20px 5px 0 0;
-}
-.pattern .track > span:after {
-  content: " :";
-}
-.pattern .highlight {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 70px;
-  background: rgba(170, 221, 255, 0.25);
-  border-radius: 16px;
-  -moz-border-radius: 16px;
-  -webkit-border-radius: 16px;
-  border: 1px solid lightgray;
-  visibility: hidden;
-}
-
-.transport {
-  margin-top: 30px;
-}
-.transport button {
-  float: left;
-}
-.transport button.play {
+  margin-right: 7px;
   width: 50px;
   height: 50px;
-  font-size: 50px;
-}
-.transport button.play:after {
-  content: "\25B6";
-}
-.transport button.play:hover {
-  color: #555555;
-}
-.transport button.stop {
-  width: 40px;
-  height: 40px;
-  margin: 8px;
-  background-color: black;
-}
-.transport button.stop:hover {
-  background-color: #555555;
-}
-.transport .slider {
-  padding-top: 10px;
-  clear: left;
-}
-.transport .slider .label {
-  display: block;
-  width: 100px;
+  overflow: hidden;
   float: left;
-}
-.transport .slider .input {
-  clear: left;
+  text-indent: -10000px;
 }
 
-.transport.playing button.play {
-  color: green;
+.pattern .highlight {
+  position: absolute;
+  top: -4px;
+  margin-left: 5px;
+  height: 255px;
+  width: 64px;
+  visibility: hidden;
+  background: url("../images/pattern.highlight.png");
 }
+
+
+.transport { overflow: hidden; }
+
+.transport .buttons     { margin-right: 70px; width: 200px; height: 50px; float: right; }
+.transport .buttons     { background: url("../images/control_buttons.png") no-repeat center top; }
+.transport button       { width: 100px; height: 50px; float: left; }
+.transport button       { font-weight: bold; text-shadow: 0 1px 0 #fff; }
+.transport button:hover { color: black !important; }
+.transport button.play  { text-indent: 20px; color: #95979e; }
+.transport button.stop  { text-indent: -20px; color: black; }
+
+.transport.playing .buttons { background-position: center -50px; }
+.transport.playing button.play { color: black; }
+.transport.playing button.stop { color: #95979e; }
+
+.transport .sliders { float: left; font-weight: bold; text-shadow: 0 1px 0 #fff; }
+.transport .slider { margin-left: 20px; padding-top: 3px; clear: left; }
+.transport .slider .label { padding-top: 2px; width: 70px; float: left; color: #95979e; }
+.transport .slider input { width: 185px; float: left; }
+.transport .slider .unit { padding-top: 2px; margin-left: 20px; float: left; }

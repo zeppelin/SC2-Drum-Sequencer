@@ -9,7 +9,9 @@ DS.Slider = SC.View.extend({
   classNames: ['slider'],
 
   defaultTemplate: SC.Handlebars.compile(
-    '<span class="label">{{title}}: {{value}}{{unit}}</span> <input type="range" {{bindAttr min="min" max="max" step="step" value="value"}}>'
+    '<span class="label">{{title}}</span>' +
+    '<input type="range" {{bindAttr min="min" max="max" step="step" value="value"}}>' +
+    '<span class="unit">{{value}}{{unit}}</span>'
   ),
 
   change: function() {

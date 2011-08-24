@@ -25,48 +25,62 @@
 </head>
 <body>
 
-	<h1>SproutCore 2 Drum Sequencer Demo</h1>
+  <!-- <a href="http://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a> -->
 
-	<script type="text/x-handlebars">
-		<h2>Drum Pattern</h2>
-		{{view DS.PatternView patternBinding="DS.pattern"}}
-		<p><em>activate buttons to trigger drum sounds during playback</em></p>
+  <div class="container">
 
-		<h2>Playback Controls</h2>
-		{{view DS.TransportView transportBinding="DS.transport"}}
-		<p><em>keyboard shortcuts: any alphabetic key &rarr; play/stop</em></p>
-	</script>
-
-	<footer>
-		Created by Adam Murray, 2011
-	</footer>
-
-
-	<script type="text/x-handlebars" data-template-name="pattern">
-		<div class="tracks">
-			{{collection contentBinding="pattern.tracks" tagName="ul" itemViewClass="DS.TrackView"}}
-			<div class="highlight" {{bindAttr style="highlightStyle" class="highlightClass"}} />
-		</div>
-	</script>
+    <header>
+      <div class="title">
+        <h1>SproutCore 2 Drum Sequencer Demo</h1>
+        <p><em>keyboard shortcuts: any alphabetic key &rarr; play/stop</em></p>
+        <p>Created by Adam Murray, 2011</p>
+      </div>
+      <div class="badge">
+        <a href="http://blog.sproutcore.com/announcing-the-winners-of-the-demo-apps-contest/">Winner</a>
+      </div>
+    </header>
 
 
-	<script type="text/x-handlebars" data-template-name="track">
-		{{content.name}}
-		{{collection contentBinding="content.steps" tagName="ol" itemViewClass="DS.StepView"}}
-	</script>
+    <script type="text/x-handlebars">
+      <h3 class="pattern-title">Drum Pattern</h3>
+      {{view DS.PatternView patternBinding="DS.pattern"}}
+      <p class="pattern-desc"><em>activate buttons to trigger drum sounds during playback</em></p>
+
+      {{view DS.TransportView transportBinding="DS.transport"}}
+    </script>
 
 
-	<script type="text/x-handlebars" data-template-name="step">
-		{{view SC.Button targetBinding="content" action="toggle"}}
-	</script>
+    <script type="text/x-handlebars" data-template-name="pattern">
+      <div class="tracks">
+        {{collection contentBinding="pattern.tracks" tagName="ul" itemViewClass="DS.TrackView"}}
+        <div class="highlight" {{bindAttr style="highlightStyle" class="highlightClass"}} />
+      </div>
+    </script>
 
 
-	<script type="text/x-handlebars" data-template-name="transport">
-		{{view DS.Button class="stop" title="stop" targetBinding="transport" action="stop"}}
-		{{view DS.Button class="play" title="play" targetBinding="transport" action="play"}}
-		{{view DS.Slider title="BPM" minBinding="DS.Transport.MIN_BPM" maxBinding="DS.Transport.MAX_BPM" valueBinding="transport.bpm"}}
-		{{view DS.Slider title="Volume" min="0" max="100" unit="%" valueBinding="transport.volumePercentage"}}
-	</script>
-	
+    <script type="text/x-handlebars" data-template-name="track">
+      {{content.name}}
+      {{collection contentBinding="content.steps" tagName="ol" itemViewClass="DS.StepView"}}
+    </script>
+
+
+    <script type="text/x-handlebars" data-template-name="step">
+      {{view SC.Button targetBinding="content" action="toggle"}}
+    </script>
+
+
+    <script type="text/x-handlebars" data-template-name="transport">
+      <div class="sliders">
+        {{view DS.Slider title="BPM" minBinding="DS.Transport.MIN_BPM" maxBinding="DS.Transport.MAX_BPM" valueBinding="transport.bpm"}}
+        {{view DS.Slider title="Volume" min="0" max="100" unit="%" valueBinding="transport.volumePercentage"}}
+      </div>
+      <div class="buttons">
+        {{#view DS.Button class="stop" title="stop" targetBinding="transport" action="stop"}}Off{{/view}}
+        {{#view DS.Button class="play" title="play" targetBinding="transport" action="play"}}On{{/view}}
+      </div>
+    </script>
+
+  </div>
+
 </body>
 </html>
